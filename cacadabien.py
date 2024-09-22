@@ -1,19 +1,15 @@
 from machine import Pin
 import time
 
-# Inicialización de pines para los LEDs
 led_pins = [15, 2, 4, 5, 18, 19, 21, 22]
 leds = [Pin(pin, Pin.OUT) for pin in led_pins]
 
 while True:
-    # Encender y apagar los LEDs de forma secuencial
     for led in leds:
-        led.value(1)         # Encender el LED
-        time.sleep(2)        # Esperar 2 segundos
-        led.value(0)         # Apagar el LED
-    
-    # Encender y apagar los LEDs en orden inverso
+        led.value(1)      
+        time.sleep(2)       
+        led.value(0)      
     for led in reversed(leds):
-        led.value(1)         # Encender el LED
-        time.sleep(2)        # Esperar 2 segundos
-        led.value(0)         # Apagar el LED
+        led.value(1)        
+        time.sleep(2)        
+        led.value(0)         
