@@ -5,6 +5,7 @@ serial = UART(2, 9600)
 while True:
     if serial.any() > 0: 
         mensaje = serial.read()
+        mensaje = int(mensaje)
         print(mensaje)
         mensaje = int(mensaje)
         led.duty(mensaje)
