@@ -23,16 +23,16 @@ while True:
     else:
         print("X NULL")
         
-    if yValue > 116:
+    if yValue < 91:
         serial.write(3)
         print("Y Negativa")
-    elif yValue < 116:
+    elif yValue > 91:
         serial.write(4)
         print("Y Positiva")
     else:
         print("Y NULL")
         
-    if (pressValue ! 1):
+    if (pressValue != 1):
         serial.write(5)
         print("RESET")
         
