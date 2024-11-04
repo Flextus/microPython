@@ -1,18 +1,21 @@
-from machine import Pin, PWM
+from machine import Pin,PWM
 import time
 
-class servo:
-    #Atributos
+class Servo:
+    #Atributos de la clase
     Pinx = 0
     Ciclo = 0
+    inmin = 0
+    inmax = 180
+    outmin = 20
+    outmax = 120
     
-    #Metodos
-    def __init__ (self, pin): #Pin es el pin donde se trabajara
-        self.Pinx = PWM(Pin(pin), freq = 50, duty = 0)
-        
-    def set_Angle (self, angulo):
-        self.Ciclo = int((angulo - 0) * (120 - 20) / (100 - 0))
+    #Constructor de la clase
+    def __init__(self,pin):
+        self.Pinx = PWM(Pin(pin), freq = 50, duty = 20)
+    #Metodo de la clase
+    def setAngle(self, angulo):
+        self.Ciclo = int((angulo-self.inmin)*(self.outmax - self.outmin)/(self.inmax-self.inmin)+ self.outmin)
         self.Pinx.duty(self.Ciclo)
-        
-        
-        
+
+
